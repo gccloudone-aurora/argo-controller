@@ -1,3 +1,3 @@
 # argo-controller
 
-A series of controllers for configuring namespaces to accomodate Argo.
+A series of controllers related to improving the integration with Argo CD.
