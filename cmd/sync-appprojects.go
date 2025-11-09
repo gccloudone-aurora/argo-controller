@@ -22,8 +22,8 @@ import (
 const (
 	sourceNamespace = "platform-management-system"
 	targetNamespace = "platform-solution-system"
-	labelKey        = "appproject"
-	labelValue      = "solution"
+	labelKey        = "project.ssc-spc.gc.ca/sync"
+	labelValue      = "argo"
 )
 
 var syncAppProjectsCmd = &cobra.Command{
