@@ -5,54 +5,33 @@ metadata:
   labels:
     {{- include "argo-controller.labels" . | nindent 4 }}
 rules:
-  - apiGroups:
-      - ""
+  - apiGroups: [""]
     resources:
       - namespaces
       - endpoints
-    verbs:
-      - get
-      - list
-      - watch
-  - apiGroups:
-      - ""
+    verbs: ["get", "list", "watch"]
+
+  - apiGroups: [""]
     resources:
       - serviceaccounts
-    verbs:
-      - get
-      - list
-      - watch
-      - create
-      - update
-      - patch
-      - delete
-  - apiGroups:
-      - rbac.authorization.k8s.io
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+
+  - apiGroups: ["rbac.authorization.k8s.io"]
     resources:
       - rolebindings
-    verbs:
-      - get
-      - list
-      - watch
-      - create
-      - update
-      - patch
-      - delete
-  - apiGroups:
-      - rbac.authorization.k8s.io
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+
+  - apiGroups: ["rbac.authorization.k8s.io"]
     resources:
       - clusterroles
-    verbs:
-      - bind
-  - apiGroups:
-      - ""
+    verbs: ["bind"]
+
+  - apiGroups: [""]
     resources:
       - secrets
-    verbs:
-      - get
-      - list
-      - watch
-      - create
-      - update
-      - patch
-      - delete
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+
+  - apiGroups: ["argoproj.io"]
+    resources:
+      - appprojects
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
