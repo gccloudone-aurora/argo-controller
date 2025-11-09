@@ -1,8 +1,8 @@
-{{- if .Values.controllers.imagePullSecrets.enabled }}
+{{- if .Values.controllers.syncAppProjects.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "argo-controller.fullname" . }}-image-pull-secrets
+  name: {{ include "argo-controller.fullname" . }}-sync-appprojects
   labels:
     {{- include "argo-controller.labels" . | nindent 4 }}
 spec:
@@ -39,8 +39,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
-            - image-pull-secrets
-            - --image-pull-secret={{ .Values.controllers.imagePullSecrets.componentsImagePullSecretName }}
+            - sync-appprojects
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

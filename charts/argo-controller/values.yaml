@@ -4,13 +4,28 @@
 
 replicaCount: 1
 
+controllers:
+  syncAppProjects:
+    enabled: false
+
+  imagePullSecrets:
+    enabled: false
+    componentsImagePullSecretName: ""
+
+  workflows:
+    emabled: false
+    args:
+      namespaceAdminsRoleBindingName:
+      userInterfaceClusterRoleName:
+      argoWorkflowsClusterRoleName:
+
+    storageAccount:
+      existingSecret: ""
+
 image:
   repository: gccloudone-aurora/argo-controller
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: "v0.0.1"
-
-componentsImagePullSecretName: "image-pull-secret"
+  tag: "v0.0.2"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -18,7 +33,6 @@ fullnameOverride: ""
 
 podAnnotations: {}
 podLabels: {}
-
 podSecurityContext: {}
   # fsGroup: 2000
 
@@ -33,9 +47,6 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-storageAccount:
-  existingSecret: ""
-
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
@@ -49,9 +60,7 @@ resources: {}
   #   memory: 128Mi
 
 nodeSelector: {}
-
 tolerations: []
-
 affinity: {}
 
 serviceAccount:
@@ -62,9 +71,3 @@ serviceAccount:
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name: ""
-
-workflows:
-  args:
-    namespaceAdminsRoleBindingName:
-    userInterfaceClusterRoleName:
-    argoWorkflowsClusterRoleName:
