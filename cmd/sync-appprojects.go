@@ -168,8 +168,6 @@ func handleDelete(obj interface{}, argoClient argoclientset.Interface) {
 	}
 }
 
-// --- Init --------------------------------------------------------------------
-
 func init() {
 	rootCmd.AddCommand(syncAppProjectsCmd)
 }
