@@ -120,9 +120,7 @@ func handleSync(obj interface{}, argoClient argoclientset.Interface, kubeClient 
 		copy.Labels = map[string]string{}
 	}
 	copy.Labels["mirrored-from"] = srcNs
-	copy.Labels["mirrored-by"] = "gccloudone-aurora/argo-controller"
-	copy.Labels["mirrored-timestamp"] = time.Now().UTC().Format(time.RFC3339)
-
+	copy.Labels["mirrored-by"] = "argo-controller"
 	klog.Infof("Syncing AppProject %s from %s → %s", project.Name, srcNs, tgtNs)
 
 	existing, err := argoClient.ArgoprojV1alpha1().AppProjects(tgtNs).Get(context.Background(), copy.Name, metav1.GetOptions{})
