@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   argo-controller:
   - apiVersion: v2
+    appVersion: 0.0.3
+    created: "2025-11-10T02:34:23.486906716Z"
+    description: A Helm chart for Argo Controller.
+    digest: d3bf820a449d3a050f3c68b4e2cf28a83e15b089914510e958ef154dec4b4533
+    name: argo-controller
+    type: application
+    urls:
+    - https://github.com/gccloudone-aurora/argo-controller/releases/download/argo-controller-0.0.3/argo-controller-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
     appVersion: 0.0.2
     created: "2025-11-09T18:10:31.982674953Z"
     description: A Helm chart for Argo Controller.
@@ -21,4 +31,4 @@ entries:
     urls:
     - https://github.com/gccloudone-aurora/argo-controller/releases/download/argo-controller-0.0.1/argo-controller-0.0.1.tgz
     version: 0.0.1
-generated: "2025-11-09T18:10:31.982681796Z"
+generated: "2025-11-10T02:34:23.486921186Z"
